@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { BrowserRouter, useRoutes } from 'react-router-dom';
-import React from 'react'
+import { BrowserRouter, useRoutes } from "react-router-dom";
+import React from "react";
 
 //contexto
-import { TrainingLogiTransProvider } from '../../Context';
-
+import { TrainingLogiTransProvider } from "../../Context";
 
 //Pages
 import Home from "../Home";
@@ -18,25 +17,23 @@ const AppRoutes = () => {
     {
       element: <LayoutWithHeader />,
       children: [
-        { path: '/', element: <Home /> },
-        { path: '/training/:courseId', element: <Training /> },
-      ]
+        { path: "/", element: <Home /> },
+        { path: "/training/:courseId", element: <Training /> },
+      ],
     },
-     { path: '/training/:courseId/module/:moduleId', element: <Training /> }
+    { path: "/training/:courseId/module/:moduleId", element: <Training /> },
   ]);
-  return routes
-}
+  return routes;
+};
 
 function App() {
-
-
   return (
     <TrainingLogiTransProvider>
-      <BrowserRouter>
-        <AppRoutes ></AppRoutes>
+      <BrowserRouter basename="/FormacionesV2">
+        <AppRoutes></AppRoutes>
       </BrowserRouter>
     </TrainingLogiTransProvider>
-  )
+  );
 }
 
-export default App
+export default App;
